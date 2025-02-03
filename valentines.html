@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valentine's Invite</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+        background-color: #ffe6e6;
+      }
+      h1 {
+        color: #d63384;
+      }
+      .btn {
+        font-size: 20px;
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      #yes {
+        background-color: #ff4d6d;
+        color: white;
+      }
+      #no {
+        background-color: #6c757d;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Will you be my Valentine? ❤️</h1>
+    <button id="yes" class="btn" onclick="acceptLove()">Yes</button>
+    <button id="no" class="btn" onclick="shrinkNo()">No</button>
+
+    <script>
+      let yesSize = 20;
+      let noSize = 20;
+
+      function shrinkNo() {
+        noSize -= 2;
+        yesSize += 2;
+        document.getElementById("no").style.fontSize = noSize + "px";
+        document.getElementById("yes").style.fontSize = yesSize + "px";
+
+        if (noSize <= 10) {
+          document.getElementById("no").disabled = true;
+          document.getElementById("no").innerText = "😢";
+        } else if (noSize <= 15) {
+          document.getElementById("no").innerText = "Why????";
+        }
+      }
+
+      function acceptLove() {
+        document.body.innerHTML = `<h1>Yay! Can't wait to see you! ❤️</h1>`;
+      }
+    </script>
+  </body>
+</html>
